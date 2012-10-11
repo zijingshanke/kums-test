@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap   PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"   "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="IBatis">
+	<typeAlias alias="ibatis" type="com.ibatis.test.IBatis" />
+
+	<select id="getIBatis" parameterClass="java.lang.String"
+		resultClass="ibatis">
+		select id, name, age from ibatis where name = #name#
+	</select>
+
+	<update id="updateIBatis" parameterClass="ibatis">
+		UPDATE ibatis SET name=#name#, age=#age# WHERE id = #id#
+	</update>
+
+	<insert id="insertIBatis" parameterClass="ibatis">
+		INSERT INTO ibatis (id, name,age) VALUES (#id#, #name#, #age#)
+	</insert>
+
+	<delete id="deleteIBatis" parameterClass="java.lang.String">
+		delete from ibatis where id = #value#
+	</delete>
+</sqlMap>

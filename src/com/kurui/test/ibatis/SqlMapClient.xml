@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig   PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"  "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+	<settings cacheModelsEnabled="true" enhancementEnabled="true"
+		lazyLoadingEnabled="true" errorTracingEnabled="true" maxRequests="32"
+		maxSessions="10" maxTransactions="5" useStatementNamespaces="false" />
+		
+	<transactionManager type="JDBC">
+		<dataSource type="SIMPLE">
+			<property name="JDBC.Driver"
+				value="oracle.jdbc.driver.OracleDriver" />
+			<property name="JDBC.ConnectionURL"
+				value="jdbc:oracle:thin:@192.168.150.1:1521:orcl" />
+			<property name="JDBC.Username" value="kums" />
+			<property name="JDBC.Password" value="kurui001" />
+			<property name="Pool.MaximumActiveConnections" value="10" />
+			<property name="Pool.MaximumIdleConnections" value="5" />
+			<property name="Pool.MaximumCheckoutTime" value="120000" />
+			<property name="Pool.TimeToWait" value="500" />
+			<property name="Pool.PingQuery"
+				value="select 1 from IBatis" />
+			<property name="Pool.PingEnabled" value="false" />
+			<property name="Pool.PingConnectionsOlderThan" value="1" />
+			<property name="Pool.PingConnectionsNotUsedFor" value="1" />
+		</dataSource>
+	</transactionManager>
+	<sqlMap resource="com/ibatis/test/IBatis.xml" />
+</sqlMapConfig>
